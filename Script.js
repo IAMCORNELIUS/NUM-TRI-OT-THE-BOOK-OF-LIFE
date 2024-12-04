@@ -1,32 +1,34 @@
-// Initialize click counter
+// JavaScript for the Book Opening Effect
 let clickCount = 0;
-let bookEmblem = document.getElementById('bookEmblem'); // The image or button to click for opening the book
-let bookContent = document.getElementById('book-content'); // The content of the book that will appear
 
-// Listen for clicks on the emblem
-bookEmblem.addEventListener('click', function() {
+function openBook() {
   clickCount++;
   
-  // If 3 clicks in 3 seconds
-  if (clickCount === 3) {
-    setTimeout(function() {
-      clickCount = 0; // Reset after 3 seconds
-    }, 3000); // Wait 3 seconds after 3 clicks
+  if (clickCount === 1) {
+    setTimeout(() => {
+      alert("Step 1: 3 clicks completed! Now wait for 6 clicks.");
+    }, 3000);
   }
-  
-  // If 6 clicks in 6 seconds
-  if (clickCount === 6) {
-    setTimeout(function() {
-      clickCount = 0; // Reset after 6 seconds
-    }, 6000); // Wait 6 seconds after 6 clicks
+  if (clickCount === 7) {
+    setTimeout(() => {
+      alert("Step 2: 6 clicks completed! Now wait for 9 clicks.");
+    }, 6000);
   }
+  if (clickCount === 16) {
+    setTimeout(() => {
+      alert("Step 3: 9 clicks completed! The Book of Life is now OPEN.");
+      document.getElementById("bookCover").classList.add("glow");
+    }, 9000);
+  }
+}
 
-  // If 9 clicks in 9 seconds, the book opens
-  if (clickCount === 9) {
-    setTimeout(function() {
-      clickCount = 0; // Reset after 9 seconds
-      bookContent.style.display = 'block'; // Reveal the book content
-      bookContent.innerHTML = "<h2>The Book of Life has been opened!</h2>" + bookContent.innerHTML; // Add message
-    }, 9000); // Wait 9 seconds after 9 clicks
+// JavaScript for the Pope Image Click Effect
+let popeClickCount = 0;
+
+function revealLink() {
+  popeClickCount++;
+  if (popeClickCount === 3) {
+    document.getElementById("hidden-link").style.display = "block"; // Reveal hidden link
+    alert("You unlocked the hidden link! Check your inbox soon.");
   }
-});
+}
